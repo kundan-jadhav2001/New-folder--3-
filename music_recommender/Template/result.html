@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<style>
+    
+    body{
+        background-image: url("{%static 'music.jpeg'%}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        text-align: center;
+        font-family: cursive;
+        color : red;
+        font-size: 50px;
+    }
+    table td,th{
+        color: white;
+        font-size: 30px;
+        padding:12px 28px;
+    }
+    table td{
+        font-size: 25px;
+    }
+    p{
+        color: white;
+        font-size: 30px;
+    }
+    input[type="button"]{
+        padding:14px 28px;
+        background-color: pink;
+        color: rgb(37, 38, 121);
+        font-size: 30px;
+    }
+</style>
+<body>
+    <h1>Song Recommendation</h1>
+    <center>
+        <p>Random Song Selected is "{{recommendation.song}}"
+        <br><br>
+        4 Similar songs are :</p>
+        <table border="2">
+            <tr>
+                <th>S.R.</th>
+                <th>Song Name</th>
+                <th>Similarity score</th>
+            </tr>
+            {% for i in result %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.score}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <br><br><br>
+        
+        <a href=""><input type="button" value="Home"></a>
+    </center>
+    
+</body>
+</html>

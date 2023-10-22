@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Recommendation</title>
+</head>
+<style>
+    
+    body{
+        background-image: url("{%static 'music.jpeg'%}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        text-align: center;
+        font-family: cursive;
+        color : red;
+        font-size: 50px;
+    }
+    label{
+        color: white;
+        font-size: 30px;
+    }
+    input[type="text"]{
+        padding:12px 28px;
+    }
+    input[type="submit"]{
+        padding:14px 28px;
+        background-color: pink;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h1>Song Recommendation</h1>
+    <center>
+        <form method="post" action="result">{% csrf_token %}
+            <label for="songname">Enter Random number (0-5000) :</label>
+            <input type="text" id="songname" name="SongNumber" type="number">
+            <br><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+    
+</body>
+</html>
