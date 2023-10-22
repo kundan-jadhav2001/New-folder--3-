@@ -12,7 +12,7 @@ def home(request):
 def result(request):
     if request.method == 'POST':
         random_number = int(request.POST['SongNumber'])
-        songs = pd.read_csv('../songdata.csv')
+        songs = pd.read_csv('./music_recommender/songdata.csv')
         songs = songs.sample(n=5000).drop('link', axis=1).reset_index(drop=True)
         songs['text'] = songs['text'].str.replace(r'\n', '')
         tfidf = TfidfVectorizer(analyzer='word', stop_words='english')
